@@ -1,8 +1,24 @@
 import { createBrowserRouter } from "react-router";
+import App from "../App";
+import BookList from "../components/book/BookList";
+import BookListPage from "../pages/BookListPage";
 
-export const router = createBrowserRouter([
+ const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
+    element: <App/>,
+    children: [
+    {
+      path:"/books",
+      element:<BookListPage/>
+    }
+    
+
+
+
+    ]
   },
 ]);
+
+
+export default router;
