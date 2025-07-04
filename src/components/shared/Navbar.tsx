@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-// Main Navbar component
+import { FiAlignJustify } from "react-icons/fi";
 export default function Navbar() {
-  // State to manage the mobile menu's open/close status
+ 
   const [isOpen, setIsOpen] = useState(false);
 
   // Function to toggle the mobile menu
@@ -11,18 +11,18 @@ export default function Navbar() {
   };
 
   return (
-    // Navbar container with a very light blue background, padding, and subtle shadow
+    
     <nav className="bg-blue-50 p-4 shadow-md rounded-b-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center">
-          {/* Logo text with a vibrant blue color and modern font */}
+         
           <span className="text-blue-700 text-3xl font-extrabold font-inter tracking-wide">
             BookFlow
           </span>
         </div>
 
-        {/* Desktop Navigation Links */}
+      
         <div className="hidden md:flex space-x-8">
           <a
             href="#"
@@ -44,14 +44,14 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Menu Button (Hamburger Icon) */}
+       
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
             className="text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 p-2 rounded-md"
             aria-label="Toggle navigation"
           >
-            {/* Hamburger icon when menu is closed, 'X' icon when open */}
+          
             {isOpen ? (
               <svg
                 className="w-8 h-8"
