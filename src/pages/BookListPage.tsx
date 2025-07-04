@@ -46,15 +46,17 @@ const BookListPage: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Library Books</h1>
-        <button
-          onClick={() => navigate('/add-book')}
-          className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
-        >
-          Add New Book
-        </button>
-      </div>
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 px-4 sm:px-6 lg:px-2">
+  <h1 className="text-3xl sm:text-3xl lg:text-4xl font-extrabold text-blue-500 tracking-tight pr-0 sm:pr-4 mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
+    All Library Books
+  </h1>
+  <button
+    onClick={() => navigate('/add-book')}
+    className="bg-blue-500 text-white px-4 py-2 font-bold rounded-md hover:bg-blue-600 w-full sm:w-auto text-center"
+  >
+    Add New Book
+  </button>
+</div>
 
       {books && books.length > 0 ? (
         <BookList 

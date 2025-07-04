@@ -11,17 +11,17 @@ interface BookListProps {
 
 const BookList: React.FC<BookListProps> = ({ books, onEdit, onDelete, onBorrow }) => {
   return (
-    <div className="overflow-hidden shadow-xl rounded-xl border border-blue-100 mx-auto "> {/* More pronounced shadow, rounded borders, and max-width */}
+    <div className="overflow-x-auto rounded-xl shadow-xl border border-blue-100 mt-8 mb-8 mx-4 lg:mx-auto lg:max-w-8xl"> 
       <table className="min-w-full divide-y divide-blue-200">
-        <thead className="bg-gradient-to-r from-blue-600 to-blue-700"> {/* Gradient background for header */}
+        <thead className="bg-gradient-to-r from-blue-400 to-blue-500"> 
           <tr>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Title</th> {/* Slightly larger padding, semibold font */}
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Author</th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Genre</th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">ISBN</th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Copies</th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Available</th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-white uppercase tracking-wider">Actions</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Title</th> 
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Author</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Genre</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">ISBN</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Copies</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Available</th>
+            <th className="px-6 py-4 text-left text-sm  font-bold text-white uppercase tracking-wider">Actions</th>
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-blue-100">
@@ -32,7 +32,7 @@ const BookList: React.FC<BookListProps> = ({ books, onEdit, onDelete, onBorrow }
               onEdit={onEdit}
               onDelete={onDelete}
               onBorrow={onBorrow}
-             
+              className={index % 2 === 0 ? 'bg-white' : 'bg-blue-50'} // Alternating row colors
             />
           ))}
         </tbody>
