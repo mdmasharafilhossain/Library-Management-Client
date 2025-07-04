@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     
-    <nav className="bg-blue-50 p-1 shadow-md rounded-b-lg">
+    <nav className="bg-blue-50 p-[6px] shadow-md rounded-b-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center">
