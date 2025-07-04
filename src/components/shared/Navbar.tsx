@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
+import { FiXSquare } from "react-icons/fi";
 import { FiAlignJustify } from "react-icons/fi";
+import logo from '../../assets/Logo.png'
 export default function Navbar() {
  
   const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +13,12 @@ export default function Navbar() {
 
   return (
     
-    <nav className="bg-blue-50 p-4 shadow-md rounded-b-lg">
+    <nav className="bg-blue-50 p-1 shadow-md rounded-b-lg">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center">
          
-          <span className="text-blue-700 text-3xl font-extrabold font-inter tracking-wide">
-            BookFlow
-          </span>
+          <img src={logo} alt="Logo"  className='w-18 h-16 ml-5' />
         </div>
 
       
@@ -53,35 +52,9 @@ export default function Navbar() {
           >
           
             {isOpen ? (
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
-              </svg>
+              <FiXSquare className='w-8 h-8'/>
             ) : (
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
+             <FiAlignJustify className='w-8 h-8'/>
             )}
           </button>
         </div>
@@ -93,21 +66,21 @@ export default function Navbar() {
           <a
             href="#"
             className="block text-blue-700 text-lg font-medium px-4 py-3 hover:bg-blue-200 transition duration-300 ease-in-out rounded-md"
-            onClick={toggleMenu} // Close menu on link click
+            onClick={toggleMenu} 
           >
             All Books
           </a>
           <a
             href="#"
             className="block text-blue-700 text-lg font-medium px-4 py-3 hover:bg-blue-200 transition duration-300 ease-in-out rounded-md"
-            onClick={toggleMenu} // Close menu on link click
+            onClick={toggleMenu} 
           >
             Add Book
           </a>
           <a
             href="#"
             className="block text-blue-700 text-lg font-medium px-4 py-3 hover:bg-blue-200 transition duration-300 ease-in-out rounded-md"
-            onClick={toggleMenu} // Close menu on link click
+            onClick={toggleMenu} 
           >
             Borrow Summary
           </a>
