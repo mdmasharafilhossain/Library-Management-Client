@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { FiXSquare } from "react-icons/fi";
 import { FiAlignJustify } from "react-icons/fi";
 import logo from '../../assets/Logo.png'
-import { Link, NavLink } from 'react-router';
+import {  NavLink } from 'react-router';
 export default function Navbar() {
  
   const [isOpen, setIsOpen] = useState(false);
