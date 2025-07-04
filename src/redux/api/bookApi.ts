@@ -15,8 +15,7 @@ export const bookApi = createApi({
                         { type: 'Book', id: 'LIST' },
                     ]
                     : [{ type: 'Book', id: 'LIST' }],
-        }),
-    })
+        })
 
-})
+    })
 });
