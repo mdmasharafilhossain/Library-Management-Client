@@ -19,3 +19,13 @@ export const bookApi = createApi({
 
     })
 });
+
+
+
+
+
+export const {
+
+    useGetBooksQuery
+
+} =bookApi
