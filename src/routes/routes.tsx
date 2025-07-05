@@ -4,6 +4,7 @@ import App from "../App";
 import BookListPage from "../pages/BookListPage";
 import AddBookPage from "../pages/AddBookPage";
 import EditBookPage from "../pages/EditBookPage";
+import BorrowPage from "../pages/BorrowPage";
 
  const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ import EditBookPage from "../pages/EditBookPage";
     {
       path:"/edit-book/:id",
       element:<EditBookPage/>
+    },
+    {
+      path:"/borrow/:bookId",
+      element:<BorrowPage/>
     }
     
 
