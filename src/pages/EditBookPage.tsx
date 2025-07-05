@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+
 import { useGetBookByIdQuery, useUpdateBookMutation } from '../redux/api/bookApi';
 import type { BookFormData } from '../types/types';
 import BookForm from '../components/book/BookForm';
 import Swal from 'sweetalert2';
+import { useNavigate, useParams } from 'react-router';
 
 const EditBookPage: React.FC = () => {
   const navigate = useNavigate();

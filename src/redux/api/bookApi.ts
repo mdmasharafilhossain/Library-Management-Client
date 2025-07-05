@@ -35,6 +35,7 @@ export const bookApi = createApi({
     // Get a Book by ID
 getBookById: builder.query<Book, string>({
   query: (id) => `/books/${id}`,
+  transformResponse: (response: { data: Book }) => response.data,
   providesTags: (result, error, id) => [{ type: 'Book', id }],
 }),
 
@@ -61,5 +62,5 @@ export const { useGetBooksQuery ,
   useAddBookMutation , 
   useGetBookByIdQuery , 
   useUpdateBookMutation
-  
+
 }= bookApi;
