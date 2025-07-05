@@ -95,7 +95,7 @@ const EditBookPage: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 ">
       <div className="max-w-3xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <div className="flex items-center mb-6">
@@ -105,16 +105,21 @@ const EditBookPage: React.FC = () => {
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-gray-800">Edit Book</h1>
+              <h1 className="text-3xl sm:text-3xl lg:text-3xl font-extrabold text-blue-500 tracking-tight pr-0 sm:pr-4  sm:mb-0 text-left sm:text-left w-full sm:w-auto">
+   Edit Book
+  </h1>
+              
               <p className="text-gray-600">Update the details of "{book.title}"</p>
             </div>
           </div>
           
-          <BookForm 
+         <div className='hover:border-2 hover:border-blue-400 rounded-xl'>
+             <BookForm 
             initialData={book}
             onSubmit={handleSubmit} 
             isSubmitting={isUpdating} 
           />
+         </div>
         </div>
         
         <div className="text-center">
