@@ -21,7 +21,46 @@ export const bookApi = createApi({
             ]
           : [{ type: 'Book', id: 'LIST' }],
     }),
+    // For Add n New Book
+    addBook: builder.mutation<Book, Partial<Book>>({
+      query:(book)=>({
+        url:'/books',
+        method:'POST',
+        body:book
+      }),
+        invalidatesTags: [{ type: 'Book', id: 'LIST' }],
+
+    }),
+
+    // Get a Book by ID
+getBookById: builder.query<Book, string>({
+  query: (id) => `/books/${id}`,
+  transformResponse: (response: { data: Book }) => response.data,
+  providesTags: (result, error, id) => [{ type: 'Book', id }],
+}),
+
+// For Updating the book
+updateBook: builder.mutation<Book, { id: string; updates: Partial<Book> }>({
+  query: ({ id, updates }) => ({
+    url: `/books/${id}`,
+    method: 'PUT',
+    body: updates,
   }),
+  invalidatesTags: (result, error, { id }) => [{ type: 'Book', id }],
+}),
+
+
+
+
+
+  }),
+
+  
 });
 
-export const { useGetBooksQuery } = bookApi;
+export const { useGetBooksQuery ,
+  useAddBookMutation , 
+  useGetBookByIdQuery , 
+  useUpdateBookMutation
+
+}= bookApi;

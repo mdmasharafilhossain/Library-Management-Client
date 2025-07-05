@@ -24,12 +24,12 @@ const BookItem: React.FC<BookItemProps> = ({ book, onEdit, onDelete, onBorrow, c
       <td className="px-6 py-4 whitespace-nowrap">
         <span className={`
           px-3 py-1 inline-flex text-sm leading-5 font-bold rounded-full
-          ${book.available
+          ${book.copies > 0
             ? 'bg-green-200 text-green-900 border border-green-300' 
             : 'bg-red-200 text-red-900 border border-red-300' 
           }
         `}>
-          {book.available ? 'Available' : 'Unavailable'} 
+          {book.copies > 0 ? 'Available' : 'Unavailable'} 
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
