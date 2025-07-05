@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 const BorrowPage: React.FC = () => {
   const navigate = useNavigate();
   const { bookId } = useParams<{ bookId: string }>();
-  const { data: book, isLoading, isError } = useGetBookByIdQuery(bookId || '');
+  const { data: book, isLoading, isError  } = useGetBookByIdQuery(bookId || '');
   const [borrowBook, { isLoading: isSubmitting, isSuccess, isError: borrowError, error }] = useBorrowBookMutation();
   
   const [quantity, setQuantity] = useState(1);
@@ -112,10 +112,22 @@ const BorrowPage: React.FC = () => {
     if (!bookId) return;
     
     borrowBook({
-      book: bookId,
-      quantity,
-      dueDate: new Date(dueDate).toISOString()
-    });
+  book: bookId,
+  quantity,
+  dueDate: new Date(dueDate).toISOString()
+})
+  .unwrap()
+  .then(() => {
+    setTimeout(() => {
+      window.location.reload(); 
+    }, 5000);
+  })
+  .catch((err) => {
+    console.error("Borrow failed", err);
+  });
+
+
+    
   };
 
   if (isLoading) {
