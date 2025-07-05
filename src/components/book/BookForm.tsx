@@ -24,11 +24,9 @@ const BookForm: React.FC<BookFormProps> = ({
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 mt-5 ">
       <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-6 border-b border-gray-200 pb-2">
-          {initialData ? 'Edit Book Details' : 'Add New Book'}
-        </h2>
+        
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Title */}

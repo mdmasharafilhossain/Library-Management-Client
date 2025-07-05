@@ -43,10 +43,13 @@ const AddBookPage: React.FC = () => {
       <h1 className="text-3xl sm:text-3xl lg:text-4xl font-extrabold text-blue-500 tracking-tight pr-0 sm:pr-4 mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
     Add a New Book
   </h1>
-      <BookForm 
+      
+      <div className='mt-5 shadow-xl hover:border-2 rounded-xl hover:border-blue-400'>
+<BookForm 
         onSubmit={handleSubmit} 
         isSubmitting={isLoading} 
       />
+      </div>
     </div>
   );
 };
