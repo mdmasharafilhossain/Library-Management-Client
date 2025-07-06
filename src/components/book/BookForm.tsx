@@ -24,7 +24,7 @@ const BookForm: React.FC<BookFormProps> = ({
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 mt-40 ">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 ">
       <div className="bg-white shadow-md rounded-lg p-6">
         
         
