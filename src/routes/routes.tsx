@@ -5,6 +5,7 @@ import BookListPage from "../pages/BookListPage";
 import AddBookPage from "../pages/AddBookPage";
 import EditBookPage from "../pages/EditBookPage";
 import BorrowPage from "../pages/BorrowPage";
+import BorrowSummaryPage from "../pages/BorrowSummaryPage";
 
  const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ import BorrowPage from "../pages/BorrowPage";
     {
       path:"/borrow/:bookId",
       element:<BorrowPage/>
+    },
+    {
+      path:"/borrow-summary",
+      element:<BorrowSummaryPage/>
     }
     
 
