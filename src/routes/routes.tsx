@@ -12,6 +12,10 @@ import BorrowSummaryPage from "../pages/BorrowSummaryPage";
     path: "/",
     element: <App/>,
     children: [
+      {
+        index: true,
+        element: <BookListPage />
+      },
     {
       path:"/books",
       element:<BookListPage/>
