@@ -1,69 +1,82 @@
-# React + TypeScript + Vite
+# Minimal Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Minimal Library Management System is a full-stack web application built to demonstrate the core functionality of managing a book borrowing platform with a clean, responsive UI and a scalable backend API. Designed with simplicity in mind, this system serves as a foundational blueprint for larger, more complex library or inventory systems.
 
-Currently, two official plugins are available:
+This project offers an end-to-end solution where users can browse, create, update, and delete book records, borrow available books, and view a real-time summary of borrow statistics—all without needing to authenticate or deal with role-based access control. It is intended to focus on the essential features that make a digital library functional and interactive.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The frontend is built using **React and TypeScript**, with **Redux Toolkit Query (RTK Query)** to handle state management and API interactions efficiently. The backend is developed with **Node.js, Express, and MongoDB** following the **MVC (Model-View-Controller)** architecture for maintainability and scalability.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Key Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Public Access**  
+  All routes (Books, Borrow, Summary) are publicly accessible—no login or authentication required.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Book Management**  
+  Users can easily **add**, **view**, **edit**, and **delete** books. The UI updates instantly after each action.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Borrowing System**  
+  Borrow books with a specified **quantity** and **due date**. The system automatically handles:
+  - Quantity validation (you can’t borrow more than available)
+  - Setting availability to "No" if copies run out
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- **Borrow Summary**  
+  Displays a summarized report of borrowed books with **total quantities**, powered by MongoDB’s aggregation pipeline.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Pagination & Sorting Support**  
+  API allows pagination and sorting using query params:  
+   
+- **Responsive Layout**   
+Fully responsive layout using **Tailwind CSS**—works on mobile, tablet, and desktop devices.
+- **🔔 Toast Notifications** *(+2 Bonus)*  
+Provides **instant success or error messages** using `sweetalert2`.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | React , TypeScript, Vite, Tailwind CSS |
+| State / API | Redux Toolkit & RTK Query |
+| Backend | Node , Express , TypeScript |
+| Database | MongoDB , Mongoose |
+| Tooling | ESLint, Prettier |
+
+---
+
+## 🚀 Live Demo
+
+| App | URL |
+|-----|-----|
+| **Live** | <https://library-management-sigma-nine.vercel.app/>> |
+
+
+
+
+---
+
+
+
+
+---
+
+## ⚙️ Local Setup
+
+```bash
+# 1. Clone both repos (or monorepo)
+git clone <REPO-URL>
+cd minimal-library
+
+# 2. Server
+cd server
+cp .env.example .env          # fill in MONGODB_URI, JWT_SECRET
+pnpm i
+pnpm dev                      # http://localhost:3000
+
+# 3. Client (new terminal)
+cd ../client
+cp .env.example .env          # VITE_API_URL=http://localhost:3000/api
+pnpm i
+pnpm dev                      # http://localhost:5173
