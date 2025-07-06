@@ -48,7 +48,14 @@ updateBook: builder.mutation<Book, { id: string; updates: Partial<Book> }>({
   }),
   invalidatesTags: (result, error, { id }) => [{ type: 'Book', id }],
 }),
-
+ deleteBook: builder.mutation<void, string>({
+      query: (id) => ({
+        url: `/books/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (result, error, id) => [{ type: 'Book', id }],
+    }),
+ 
 
 
 
@@ -61,6 +68,7 @@ updateBook: builder.mutation<Book, { id: string; updates: Partial<Book> }>({
 export const { useGetBooksQuery ,
   useAddBookMutation , 
   useGetBookByIdQuery , 
-  useUpdateBookMutation
+  useUpdateBookMutation,
+  useDeleteBookMutation
 
 }= bookApi;

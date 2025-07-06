@@ -1,45 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 
 import BookList from '../components/book/BookList';
 // import ConfirmationModal from '../components/ui/ConfirmationModal';
 
-import { useGetBooksQuery } from '../redux/api/bookApi';
+import { useDeleteBookMutation, useGetBooksQuery } from '../redux/api/bookApi';
 import { useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const BookListPage: React.FC = () => {
   const navigate = useNavigate();
-  const { data: books = [], isLoading, isError, refetch } = useGetBooksQuery();
-//   const [deleteBook] = useDeleteBookMutation();
-  const [showModal, setShowModal] = useState(false);
-  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
+  const { data: books = [], isLoading, isError } = useGetBooksQuery();
+  const [deleteBook] = useDeleteBookMutation();
+ 
 
   const handleEdit = (id: string) => {
     navigate(`/edit-book/${id}`);
   };
 
-  const handleDeleteClick = (id: string) => {
-    setSelectedBookId(id);
-    setShowModal(true);
-  };
+  const handleDeleteClick = async (id: string) => {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: 'Do you want to delete this book?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
 
+    if (!result.isConfirmed) return;
+
+    try {
+      await deleteBook(id).unwrap();
+      await Swal.fire('Deleted!', 'Book has been deleted.', 'success');
+    } catch (err) {
+      await Swal.fire('Failed!', 'Failed to delete the book.', 'error');
+      console.error(err)
+    }
+  }
   const handleBorrow = (id: string) => {
     navigate(`/borrow/${id}`);
   };
 
-//   const confirmDelete = async () => {
-//     if (selectedBookId) {
-//       try {
-//         await deleteBook(selectedBookId).unwrap();
-//         toast.success('Book deleted successfully');
-//         refetch();
-//       } catch (error) {
-//         toast.error('Failed to delete book');
-//       } finally {
-//         setShowModal(false);
-//       }
-//     }
-//   };
+
 
   if (isLoading) return <div className="text-center py-8">Loading books...</div>;
   if (isError) return <div className="text-center py-8 text-red-500">Error loading books</div>;
@@ -77,13 +81,7 @@ const BookListPage: React.FC = () => {
         </div>
       )}
 
-      {/* <ConfirmationModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onConfirm={confirmDelete}
-        title="Confirm Delete"
-        message="Are you sure you want to delete this book? This action cannot be undone."
-      /> */}
+      
     </div>
   );
 };
