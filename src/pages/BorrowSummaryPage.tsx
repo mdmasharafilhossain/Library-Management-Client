@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 
-import { FaBook, FaArrowLeft, FaChartBar } from 'react-icons/fa';
+import { FaBook, FaArrowLeft } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { useGetBorrowSummaryQuery } from '../redux/api/borrowApi';
 
@@ -66,10 +66,10 @@ const BorrowSummaryPage: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <div>
-            <h1 className="text-2xl font-bold flex items-center">
-              <FaChartBar className="mr-3 text-blue-500" />
-              Borrowing Summary
-            </h1>
+           
+            <h1 className="text-3xl sm:text-3xl lg:text-4xl font-extrabold text-blue-500 tracking-tight  mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
+    Borrowing Summary
+  </h1>
             <p className="text-gray-600 mt-1">
               Overview of all borrowed books in the library
             </p>
@@ -100,21 +100,15 @@ const BorrowSummaryPage: React.FC = () => {
           <div className="bg-gradient-to-r from-blue-400 to-blue-500 px-6 py-4 text-white">
             <div className="flex flex-wrap justify-between">
               <div className="flex items-center mb-4 sm:mb-0">
-                <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                  <FaBook className="text-xl" />
-                </div>
+                
                 <div>
-                  <p className="text-sm opacity-80">Total Books Borrowed</p>
+                  <p className="text-sm opacity-100">Total Books Borrowed</p>
                   <p className="text-2xl font-bold">{borrowSummary?.length || 0}</p>
                 </div>
               </div>
               
               <div className="flex items-center">
-                <div className="bg-white bg-opacity-20 p-3 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
+                
                 <div>
                   <p className="text-sm opacity-80">Total Copies Borrowed</p>
                   <p className="text-2xl font-bold">{totalBorrowed}</p>
@@ -130,6 +124,9 @@ const BorrowSummaryPage: React.FC = () => {
                 <thead className="bg-gray-50">
                   <tr>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      SL
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Book
                     </th>
                     <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -143,10 +140,13 @@ const BorrowSummaryPage: React.FC = () => {
                 <tbody className="bg-white divide-y divide-gray-200">
                   {borrowSummary.map((item, index) => (
                     <tr key={index} className="hover:bg-gray-50">
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        {index+1}
+                      </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
-                          <div className="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10 flex-shrink-0" />
-                          <div className="ml-4">
+                         
+                          <div className="">
                             <div className="text-sm font-medium text-gray-900">{item.book.title}</div>
                           </div>
                         </div>
