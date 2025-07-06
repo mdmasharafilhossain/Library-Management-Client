@@ -66,7 +66,7 @@ Provides **instant success or error messages** using `sweetalert2`.
 
 ```bash
 # 1. Clone  repos 
-git clone <https://github.com/mdmasharafilhossain/Library-Management-Client.git>
+git clone https://github.com/mdmasharafilhossain/Library-Management-Client.git
 cd Library-Management-Client
 
 # 2. Install dependencies
@@ -76,6 +76,6 @@ npm install
 npm run dev                    
 
 # 4. If Run Locally Backend (Optional) Then Visit This Link and Follow README.md File
-https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js
+[Library Management Backend Repository](https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js)
 
 
