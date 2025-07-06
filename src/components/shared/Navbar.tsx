@@ -36,12 +36,12 @@ export default function Navbar() {
           >
             Add Book
           </NavLink>
-          <a
-            href="#"
+          <NavLink
+            to='/borrow-summary'
             className="text-blue-600 text-lg font-semibold hover:text-blue-800 transition duration-300 ease-in-out transform hover:scale-105 px-3 py-2 rounded-md hover:bg-blue-100"
           >
             Borrow Summary
-          </a>
+          </NavLink>
         </div>
 
        
