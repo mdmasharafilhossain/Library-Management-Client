@@ -29,7 +29,7 @@ The frontend is built using **React and TypeScript**, with **Redux Toolkit Query
    
 - **Responsive Layout**   
 Fully responsive layout using **Tailwind CSS**—works on mobile, tablet, and desktop devices.
-- **🔔 Toast Notifications** *(+2 Bonus)*  
+- **Toast Notifications** *(+2 Bonus)*  
 Provides **instant success or error messages** using `sweetalert2`.
 
 ---
@@ -46,7 +46,7 @@ Provides **instant success or error messages** using `sweetalert2`.
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 | App | URL |
 |-----|-----|
@@ -62,21 +62,20 @@ Provides **instant success or error messages** using `sweetalert2`.
 
 ---
 
-## ⚙️ Local Setup
+## Local Setup
 
 ```bash
-# 1. Clone both repos (or monorepo)
-git clone <REPO-URL>
-cd minimal-library
+# 1. Clone  repos 
+git clone <https://github.com/mdmasharafilhossain/Library-Management-Client.git>
+cd Library-Management-Client
 
-# 2. Server
-cd server
-cp .env.example .env          # fill in MONGODB_URI, JWT_SECRET
-pnpm i
-pnpm dev                      # http://localhost:3000
+# 2. Install dependencies
+npm install                     
 
-# 3. Client (new terminal)
-cd ../client
-cp .env.example .env          # VITE_API_URL=http://localhost:3000/api
-pnpm i
-pnpm dev                      # http://localhost:5173
+# 3. Run the project
+npm run dev                    
+
+# 4. If Run Locally Backend (Optional) Then Visit This Link and Follow README.md File
+https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js
+
+
