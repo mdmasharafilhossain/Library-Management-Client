@@ -75,7 +75,7 @@ npm install
 # 3. Run the project
 npm run dev                    
 
-# 4. If Run Locally Backend (Optional) Then Visit This Link and Follow README.md File
-[Library Management Backend Repository](https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js)
+# 4. Optional: If you want to run the backend locally, visit the backend repository:
+https://github.com/mdmasharafilhossain/Library-Management-API-TypeScript-Node.js
 
 
