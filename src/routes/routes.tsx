@@ -4,12 +4,20 @@ import App from "../App";
 import BookListPage from "../pages/BookListPage";
 import AddBookPage from "../pages/AddBookPage";
 import EditBookPage from "../pages/EditBookPage";
+import BorrowPage from "../pages/BorrowPage";
+import BorrowSummaryPage from "../pages/BorrowSummaryPage";
+import ErrorElement from "../components/shared/ErrorElement";
 
  const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement:<ErrorElement/>,
     children: [
+      {
+        index: true,
+        element: <BookListPage />
+      },
     {
       path:"/books",
       element:<BookListPage/>
@@ -22,6 +30,14 @@ import EditBookPage from "../pages/EditBookPage";
     {
       path:"/edit-book/:id",
       element:<EditBookPage/>
+    },
+    {
+      path:"/borrow/:bookId",
+      element:<BorrowPage/>
+    },
+    {
+      path:"/borrow-summary",
+      element:<BorrowSummaryPage/>
     }
     
 

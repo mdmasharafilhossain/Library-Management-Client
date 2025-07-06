@@ -4,7 +4,7 @@ import type { Borrow, BorrowSummary } from '../../types/types';
 
 export const borrowApi = createApi({
   reducerPath: 'borrowApi',
-  baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://assignment-03-mongosee.vercel.app/api' }),
   tagTypes: ['Borrow'],
   endpoints: (builder) => ({
     borrowBook: builder.mutation<Borrow, Partial<Borrow>>({
@@ -16,7 +16,8 @@ export const borrowApi = createApi({
       invalidatesTags: ['Borrow'],
     }),
     getBorrowSummary: builder.query<BorrowSummary[], void>({
-      query: () => '/borrow-summary',
+      query: () => '/borrow',
+       transformResponse: (response: { data: BorrowSummary[] }) => response.data,
       providesTags: ['Borrow'],
     }),
   }),
