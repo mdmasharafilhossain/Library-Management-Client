@@ -112,7 +112,7 @@ const BookForm: React.FC<BookFormProps> = ({
               type="number"
               {...register('copies', { 
                 required: 'Copies is required',
-                min: { value: 0, message: 'Copies must be at least 0' },
+                min: { value: 1, message: 'Copies must be at least 1' },
                 valueAsNumber: true
               })}
               className={`w-full px-4 py-2 rounded-lg border ${
