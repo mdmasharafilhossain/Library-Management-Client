@@ -62,7 +62,7 @@ const BorrowSummaryPage: React.FC = () => {
   const totalBorrowed = borrowSummary?.reduce((sum, item) => sum + item.totalQuantity, 0) || 0;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-24">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
           <div>

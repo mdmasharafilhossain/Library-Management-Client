@@ -163,7 +163,7 @@ const BorrowPage: React.FC = () => {
   const isAvailable = book.available && book.copies > 0;
 console.log(book,"book");
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 mt-24">
       <div className="max-w-lg mx-auto">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Book Header */}
