@@ -30,12 +30,13 @@ const Footer: React.FC = () => {
           <ul className="space-y-2">
             <li><span className="text-gray-100">MD Mashrafil Hossain Mahi</span></li>
             <li><span className="text-gray-100">Web Developer</span></li>
-            <li><NavLink to="mailto:mashrafil.dev@gmail.com" className="text-gray-100 hover:text-white transition duration-300">mashrafilmahi007@gmail.com</NavLink></li>
+            <li className="text-gray-100 hover:text-white transition duration-300">Email: mashrafilmahi007@gmail.com</li>
+            <li className="text-gray-100 hover:text-white transition duration-300">Phone: +8801641749267</li>
           </ul>
         </div>
       </div>
 
-      <hr className="border-gray-300 my-10 max-w-7xl mx-auto" />
+      <hr className="border-gray-300 my-6 max-w-7xl mx-auto" />
 
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
         <p className="text-sm text-white mb-4 sm:mb-0">

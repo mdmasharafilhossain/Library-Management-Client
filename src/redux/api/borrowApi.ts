@@ -4,7 +4,7 @@ import type { Borrow, BorrowSummary } from '../../types/types';
 
 export const borrowApi = createApi({
   reducerPath: 'borrowApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://assignment-03-mongosee.vercel.app/api' }),
   tagTypes: ['Borrow'],
   endpoints: (builder) => ({
     borrowBook: builder.mutation<Borrow, Partial<Borrow>>({

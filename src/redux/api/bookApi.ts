@@ -3,7 +3,7 @@ import type { Book } from '../../types/types';
 
 export const bookApi = createApi({
   reducerPath: 'bookApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/api' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://assignment-03-mongosee.vercel.app/api' }),
   tagTypes: ['Book'],
 
   endpoints: (builder) => ({

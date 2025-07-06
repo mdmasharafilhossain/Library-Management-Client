@@ -6,11 +6,13 @@ import AddBookPage from "../pages/AddBookPage";
 import EditBookPage from "../pages/EditBookPage";
 import BorrowPage from "../pages/BorrowPage";
 import BorrowSummaryPage from "../pages/BorrowSummaryPage";
+import ErrorElement from "../components/shared/ErrorElement";
 
  const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+    errorElement:<ErrorElement/>,
     children: [
       {
         index: true,
