@@ -70,9 +70,7 @@ const BorrowSummaryPage: React.FC = () => {
             <h1 className="text-3xl sm:text-3xl lg:text-4xl font-extrabold text-blue-500 tracking-tight  mb-4 sm:mb-0 text-center sm:text-left w-full sm:w-auto">
     Borrowing Summary
   </h1>
-            <p className="text-gray-600 mt-1">
-              Overview of all borrowed books in the library
-            </p>
+            
           </div>
           
           <div className="flex space-x-2 mt-4 sm:mt-0">

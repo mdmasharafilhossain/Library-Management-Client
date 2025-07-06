@@ -7,20 +7,35 @@ export const bookApi = createApi({
   tagTypes: ['Book'],
 
   endpoints: (builder) => ({
-    getBooks: builder.query<Book[], void>({
-      query: () => '/books',
+    getBooks: builder.query<
+  { data: Book[]; meta: { page: number; limit: number; total: number; totalPages: number } },
+  { page?: number; limit?: number; filter?: string; sortBy?: string; sort?: 'asc' | 'desc' }
+>({
+  query: ({ page = 1, limit = 10, filter, sortBy = 'createdAt', sort = 'asc' }) => {
+    const params = new URLSearchParams();
+    params.set('page', page.toString());
+    params.set('limit', limit.toString());
+    params.set('sortBy', sortBy);
+    params.set('sort', sort);
+    if (filter) params.set('filter', filter);
 
-      
-      transformResponse: (response: { data: Book[] }) => response.data,
+    return `/books?${params.toString()}`;
+  },
 
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ _id }) => ({ type: 'Book' as const, id: _id })),
-              { type: 'Book', id: 'LIST' },
-            ]
-          : [{ type: 'Book', id: 'LIST' }],
-    }),
+  
+  transformResponse: (response: {
+    data: { data: Book[]; meta: { page: number; limit: number; total: number; totalPages: number } };
+  }) => response.data,
+
+  providesTags: (result) =>
+    result?.data
+      ? [
+          ...result.data.map(({ _id }) => ({ type: 'Book' as const, id: _id })),
+          { type: 'Book', id: 'LIST' },
+        ]
+      : [{ type: 'Book', id: 'LIST' }],
+}),
+
     // For Add n New Book
     addBook: builder.mutation<Book, Partial<Book>>({
       query:(book)=>({
