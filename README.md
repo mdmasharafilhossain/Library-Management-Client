@@ -50,7 +50,7 @@ Provides **instant success or error messages** using `sweetalert2`.
 
 | App | URL |
 |-----|-----|
-| **Live** | <https://library-management-sigma-nine.vercel.app/>> |
+| **Live** | <https://library-management-sigma-nine.vercel.app/> |
 
 
 
