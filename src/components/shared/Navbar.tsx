@@ -1,7 +1,7 @@
 import  { useState } from 'react';
 import { FiXSquare } from "react-icons/fi";
 import { FiAlignJustify } from "react-icons/fi";
-import logo from '../../assets/Logo.png'
+import logo from '../../assets/logo.png'
 import {  NavLink } from 'react-router';
 export default function Navbar() {
  
