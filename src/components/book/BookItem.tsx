@@ -55,7 +55,7 @@ const BookItem: React.FC<BookItemProps> = ({ book, onEdit, onDelete, onBorrow, c
               ${book.copies === 0 ? 'opacity-50 cursor-not-allowed' : ''}
             `}
             title={book.copies === 0 ? "No copies available" : "Borrow Book"}
-            disabled={book.copies === 0}
+            disabled={book.copies === 0 || !book.available}
           >
             <FaBook className="w-5 h-5" />
           </button>
